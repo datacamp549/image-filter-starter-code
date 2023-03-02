@@ -34,7 +34,7 @@ import { Router, Request, Response } from 'express';
   /**************************************************************************** */
   //URL to use for image http://localhost:8082/filteredimage?image_url=https://www.audi.com/content/dam/gbp2/de/company/investor-relations/reports-and-key-figures/annual-reports/2022/Audi_GB_Social_16x9_Artikel_DE.jpg
 
-  app.get( "/filteredimage/", async ( req, res ) => {
+  app.get( "/filteredimage/", async ( req: Request, res: Response ) => {
     console.log("/filteredimage/");
     const url = req.query.image_url as string;
     //let { image_url } = req.query;

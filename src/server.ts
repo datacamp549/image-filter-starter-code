@@ -36,16 +36,17 @@ import { Router, Request, Response } from 'express';
 
   app.get( "/filteredimage/", async ( req, res ) => {
     console.log("/filteredimage/");
-    let { image_url } = req.query;
+    const url = req.query.image_url as string;
+    //let { image_url } = req.query;
 
-    if ( !image_url ) {
+    if ( !req.query.image_url ) {
       return res.status(400)
                 .send(`Please specify an URL of an public image! --> /filteredimage?image_url=<URL>`);
     }
-    console.log(image_url);
+    console.log(url);
 
   
-    const FilteredImage = await filterImageFromURL(image_url as string);
+    const FilteredImage = await filterImageFromURL(url);
 
     console.log("Path: "+ FilteredImage);
 
